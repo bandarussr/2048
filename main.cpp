@@ -3,5 +3,34 @@
 using namespace std;
 
 int main() {
+    char cmd;
     TwentyFourtyEight game;
+
+    cout << " 2048 " << endl;
+    while (cin >> cmd) {
+        game.print_board();
+
+        switch (cmd) {
+            case 'w':
+                game.move_up();
+                break;
+            case 's':
+                game.move_down();
+                break;
+            case 'a':
+                game.move_left();
+                break;
+            case 'd':
+                game.move_right();
+                break;
+            default:
+                cout << "Use the wasd keys to move." << endl;
+        }
+
+        if (game.get_over_flag() == true) {
+            cout << "Game over!" << endl;
+            cout << "Final Score: " << game.get_score() << endl;
+            break;
+        }
+    }
 }
