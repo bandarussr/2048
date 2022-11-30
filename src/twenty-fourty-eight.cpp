@@ -1,5 +1,7 @@
 #include "twenty-fourty-eight.h"
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 #include <vector>
 
 using namespace std;
@@ -28,7 +30,23 @@ bool TwentyFourtyEight::get_over_flag() {
     return over_flag;
 }
 
-void TwentyFourtyEight::random_placer() {}
+void TwentyFourtyEight::random_placer() {
+    int randI;
+    int randJ;
+    int randTile;
+    int rand_num[2] = {2, 4};
+    bool placed = false;
+    while(!placed) {
+        srand(time(NULL));
+        randI = rand() % 4 + 1;
+        randJ = rand() % 4 + 1;
+        randTile = rand() % 2 + 1;
+        if(board[randI][randJ] == 0){
+            board[randI][randJ] = rand_num[randTile];
+            placed = true;
+        }
+    }
+}
 
 bool TwentyFourtyEight::check_game_state() {}
 
