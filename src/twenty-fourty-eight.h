@@ -1,11 +1,13 @@
 #ifndef TWENTY_FOURTY_EIGHT_H
 #define TWENTY_FOURTY_EIGHT_H
 
+#include <vector>
+
 const int BOARD_SIZE = 4;
 
 class TwentyFourtyEight {
     private:
-        int board[BOARD_SIZE][BOARD_SIZE];
+        std::vector<std::vector<int>> board;
         int score;
         bool over_flag;
 
