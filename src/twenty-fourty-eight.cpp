@@ -29,3 +29,15 @@ int TwentyFourtyEight::get_score() {
 bool TwentyFourtyEight::get_over_flag() {
     return over_flag;
 }
+
+void TwentyFourtyEight::random_placer() {}
+
+bool TwentyFourtyEight::check_game_state() {}
+
+void TwentyFourtyEight::move_up() {}
+
+void TwentyFourtyEight::move_down() {}
+
+void TwentyFourtyEight::move_left() {}
+
+void TwentyFourtyEight::move_right() {}
