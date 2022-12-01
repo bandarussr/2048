@@ -1,5 +1,6 @@
 #include "twenty-fourty-eight.h"
 #include <iostream>
+#include <iomanip>
 #include <stdlib.h>
 #include <time.h>
 #include <vector>
@@ -15,12 +16,12 @@ TwentyFourtyEight::TwentyFourtyEight() {
 // TODO: Make it so board can dynamically change size depending on number size and not look weird.
 void TwentyFourtyEight::print_board() {
     for (int i = 0; i < BOARD_SIZE; i++) {
-        cout << '|';
+        cout << "|";
         for (int j = 0; j < BOARD_SIZE; j++) {
-            cout << board[i][j];
-            if(j != BOARD_SIZE - 1) cout << ' ';
+            cout << setw(5) << board[i][j];
+            if (j != BOARD_SIZE - 1) cout << "|";
         }
-        cout << '|' << endl;
+        cout << "|" << endl;
     }
 }
 
