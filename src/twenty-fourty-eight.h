@@ -7,7 +7,7 @@ const int BOARD_SIZE = 4;
 
 class TwentyFourtyEight {
     private:
-        std::vector<std::vector<int>> board;
+        std::vector<std::vector<int> > board;
         int score;
         bool over_flag;
 
