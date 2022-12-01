@@ -10,6 +10,7 @@ TwentyFourtyEight::TwentyFourtyEight() {
     //resize board to 4x4
     score = 0;
     over_flag = false;
+    board.resize(BOARD_SIZE, vector<int>(BOARD_SIZE));
 }
 
 void TwentyFourtyEight::print_board() {
@@ -17,6 +18,7 @@ void TwentyFourtyEight::print_board() {
         std::cout << '|';
         for (int j = 0; j < BOARD_SIZE; j++) {
             std::cout << board[i][j];
+            if(j != BOARD_SIZE - 1) std::cout << ' ';
         }
         std::cout << '|' << std::endl;
     }
@@ -31,26 +33,30 @@ bool TwentyFourtyEight::get_over_flag() {
 }
 
 void TwentyFourtyEight::random_placer() {
-    int randI;
-    int randJ;
-    int randTile;
+    int randI, randJ, randTile, counter;
     int rand_num[2] = {2, 4};
     bool placed = false;
+    counter = 0;
     while(!placed) {
         srand(time(NULL));
-        randI = rand() % 4 + 1;
-        randJ = rand() % 4 + 1;
-        randTile = rand() % 2 + 1;
+        randI = rand() % 4;
+        randJ = rand() % 4;
+        randTile = rand() % 2;
         if(board[randI][randJ] == 0){
             board[randI][randJ] = rand_num[randTile];
-            placed = true;
+            counter++;
         }
+        if(counter == 2) placed = true;
     }
 }
 
-bool TwentyFourtyEight::check_game_state() {}
+bool TwentyFourtyEight::check_game_state() {
+    return get_over_flag();
+}
 
-void TwentyFourtyEight::move_up() {}
+void TwentyFourtyEight::move_up() {
+
+}
 
 void TwentyFourtyEight::move_down() {}
 
