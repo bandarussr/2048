@@ -7,8 +7,9 @@ int main() {
     TwentyFourtyEight game;
 
     cout << " 2048 " << endl;
+    game.random_placer();
+    game.print_board();
     while (cin >> cmd) {
-        game.print_board();
 
         switch (cmd) {
             case 'w':
@@ -23,9 +24,13 @@ int main() {
             case 'd':
                 game.move_right();
                 break;
+            case 'q':
+                return 1;
             default:
                 cout << "Use the wasd keys to move." << endl;
         }
+        game.random_placer();
+        game.print_board();
 
         if (game.get_over_flag() == true) {
             cout << "Game over!" << endl;
