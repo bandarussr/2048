@@ -37,12 +37,12 @@ void TwentyFourtyEight::random_placer() {
     int rand_num[2] = {2, 4};
     bool placed = false;
     counter = 0;
-    random_device test;
+    random_device rand_gen;
 
     while(!placed) {
-        randI = test() % 4;
-        randJ = test() % 4;
-        randTile = test() % 2;
+        randI = rand_gen() % 4;
+        randJ = rand_gen() % 4;
+        randTile = rand_gen() % 2;
         if(board[randI][randJ] == 0) {
             board[randI][randJ] = rand_num[randTile];
             counter++;
