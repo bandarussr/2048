@@ -15,12 +15,12 @@ TwentyFourtyEight::TwentyFourtyEight() {
 // TODO: Make it so board can dynamically change size depending on number size and not look weird.
 void TwentyFourtyEight::print_board() {
     for (int i = 0; i < BOARD_SIZE; i++) {
-        std::cout << '|';
+        cout << '|';
         for (int j = 0; j < BOARD_SIZE; j++) {
-            std::cout << board[i][j];
-            if(j != BOARD_SIZE - 1) std::cout << ' ';
+            cout << board[i][j];
+            if(j != BOARD_SIZE - 1) cout << ' ';
         }
-        std::cout << '|' << std::endl;
+        cout << '|' << endl;
     }
 }
 
