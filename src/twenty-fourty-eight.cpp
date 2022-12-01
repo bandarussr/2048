@@ -1,9 +1,9 @@
 #include "twenty-fourty-eight.h"
 #include <iostream>
-#include <iomanip>
 #include <stdlib.h>
 #include <time.h>
 #include <vector>
+#include <random>
 
 using namespace std;
 
@@ -38,11 +38,12 @@ void TwentyFourtyEight::random_placer() {
     int rand_num[2] = {2, 4};
     bool placed = false;
     counter = 0;
+    random_device test;
+
     while(!placed) {
-        srand(time(NULL));
-        randI = rand() % 4;
-        randJ = rand() % 4;
-        randTile = rand() % 2;
+        randI = test() % 4;
+        randJ = test() % 4;
+        randTile = test() % 2;
         if(board[randI][randJ] == 0) {
             board[randI][randJ] = rand_num[randTile];
             counter++;
@@ -56,11 +57,21 @@ bool TwentyFourtyEight::check_game_state() {
 }
 
 void TwentyFourtyEight::move_up() {
-
 }
 
 void TwentyFourtyEight::move_down() {}
 
-void TwentyFourtyEight::move_left() {}
+void TwentyFourtyEight::move_left() {
+    for(int column = BOARD_SIZE - 1; column >= 0; column--){
+        for(int row = BOARD_SIZE - 1; row > 0; row--){
+            if(board[column][row] == 0) continue;
+            if(board[column][row] == board[column][row - 1] || board[column][row - 1] == 0){
+                board[column][row - 1] += board[column][row];
+                board[column][row] = 0;
+                row = BOARD_SIZE;
+            }
+        }
+    }
+}
 
 void TwentyFourtyEight::move_right() {}
