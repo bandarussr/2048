@@ -1,7 +1,6 @@
 #include "twenty-fourty-eight.h"
 #include <iostream>
-#include <stdlib.h>
-#include <time.h>
+#include <iomanip>
 #include <vector>
 #include <random>
 
