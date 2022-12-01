@@ -7,12 +7,12 @@
 using namespace std;
 
 TwentyFourtyEight::TwentyFourtyEight() {
-    //resize board to 4x4
     score = 0;
     over_flag = false;
-    board.resize(BOARD_SIZE, vector<int>(BOARD_SIZE));
+    board.resize(BOARD_SIZE, vector<int>(BOARD_SIZE, 0));
 }
 
+// TODO: Make it so board can dynamically change size depending on number size and not look weird.
 void TwentyFourtyEight::print_board() {
     for (int i = 0; i < BOARD_SIZE; i++) {
         std::cout << '|';
@@ -42,7 +42,7 @@ void TwentyFourtyEight::random_placer() {
         randI = rand() % 4;
         randJ = rand() % 4;
         randTile = rand() % 2;
-        if(board[randI][randJ] == 0){
+        if(board[randI][randJ] == 0) {
             board[randI][randJ] = rand_num[randTile];
             counter++;
         }
