@@ -33,18 +33,18 @@ bool TwentyFourtyEight::get_over_flag() {
 }
 
 void TwentyFourtyEight::random_placer() {
-    int randI, randJ, randTile, counter;
+    int i, j, tile, counter;
     int rand_num[2] = {2, 4};
     bool placed = false;
     counter = 0;
     random_device rand_gen;
 
     while(!placed) {
-        randI = rand_gen() % 4;
-        randJ = rand_gen() % 4;
-        randTile = rand_gen() % 2;
-        if(board[randI][randJ] == 0) {
-            board[randI][randJ] = rand_num[randTile];
+        i = rand_gen() % 4;
+        j = rand_gen() % 4;
+        tile = rand_gen() % 2;
+        if(board[i][j] == 0) {
+            board[i][j] = rand_num[tile];
             counter++;
         }
         if(counter == 2) placed = true;

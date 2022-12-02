@@ -1,4 +1,4 @@
-CFLAGS ?= -std=c++98 -Wall -Wextra -Iinclude
+CFLAGS ?= -std=c++11 -Wall -Wextra -Iinclude
 
 # -------------------------
 # This means that when you just type "make", you make all of the executables
