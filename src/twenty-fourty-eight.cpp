@@ -64,9 +64,68 @@ bool TwentyFourtyEight::check_game_state() {
 }
 
 void TwentyFourtyEight::move_up() {
+    for(int row = 0; row < BOARD_SIZE; row++){
+        for(int column = BOARD_SIZE - 1; column > 0; column--){
+            if(board[column][row] == 0) continue;
+            if(board[column - 1][row] == 0 && board[column][row] != 0){
+                board[column - 1][row] = board[column][row];
+                board[column][row] = 0;
+                column = BOARD_SIZE - 1;
+            }
+        }
+    }
+    for(int row = 0; row < BOARD_SIZE; row++){
+        for(int column = 0; column < BOARD_SIZE - 1; column++){
+            if(board[column][row] == 0) continue;
+            if(board[column + 1][row] == board[column][row]){
+                board[column][row] += board[column + 1][row];
+                board[column + 1][row] = 0;
+            }
+        }
+    }
+    for(int row = 0; row < BOARD_SIZE; row++){
+        for(int column = BOARD_SIZE - 1; column > 0; column--){
+            if(board[column][row] == 0) continue;
+            if(board[column - 1][row] == 0 && board[column][row] != 0){
+                board[column - 1][row] = board[column][row];
+                board[column][row] = 0;
+                column = BOARD_SIZE - 1;
+            }
+        }
+    }
 }
 
-void TwentyFourtyEight::move_down() {}
+void TwentyFourtyEight::move_down() {
+    for(int row = 0; row < BOARD_SIZE; row++) {
+        for (int column = 0; column < BOARD_SIZE - 1; column++) {
+            if (board[column][row] == 0) continue;
+            if (board[column + 1][row] == 0 && board[column][row] != 0) {
+                board[column + 1][row] = board[column][row];
+                board[column][row] = 0;
+                column = 0;
+            }
+        }
+    }
+    for(int row = 0; row < BOARD_SIZE; row++){
+        for(int column = BOARD_SIZE - 1; column > 0; column--){
+            if(board[column][row] == 0) continue;
+            if(board[column - 1][row] == board[column][row]){
+                board[column][row] += board[column - 1][row];
+                board[column - 1][row] = 0;
+            }
+        }
+    }
+    for(int row = 0; row < BOARD_SIZE; row++) {
+        for (int column = 0; column < BOARD_SIZE - 1; column++) {
+            if (board[column][row] == 0) continue;
+            if (board[column + 1][row] == 0 && board[column][row] != 0) {
+                board[column + 1][row] = board[column][row];
+                board[column][row] = 0;
+                column = 0;
+            }
+        }
+    }
+}
 
 void TwentyFourtyEight::move_left() {
     for(int column = BOARD_SIZE - 1; column >= 0; column--){
@@ -75,6 +134,7 @@ void TwentyFourtyEight::move_left() {
             if(board[column][row - 1] == 0 && board[column][row] != 0){
                 board[column][row - 1] = board[column][row];
                 board[column][row] = 0;
+                row = BOARD_SIZE - 1;
             }
         }
     }
@@ -93,6 +153,7 @@ void TwentyFourtyEight::move_left() {
             if(board[column][row - 1] == 0 && board[column][row] != 0){
                 board[column][row - 1] = board[column][row];
                 board[column][row] = 0;
+                row = BOARD_SIZE - 1;
             }
         }
     }
@@ -105,6 +166,7 @@ void TwentyFourtyEight::move_right() {
             if (board[column][row + 1] == 0) {
                 board[column][row + 1] = board[column][row];
                 board[column][row] = 0;
+                row = 0;
             }
         }
     }
@@ -123,6 +185,7 @@ void TwentyFourtyEight::move_right() {
             if (board[column][row + 1] == 0) {
                 board[column][row + 1] = board[column][row];
                 board[column][row] = 0;
+                row = 0;
             }
         }
     }
