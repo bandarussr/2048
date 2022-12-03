@@ -62,7 +62,7 @@ void TwentyFourtyEight::random_placer() {
 bool TwentyFourtyEight::check_game_state() {
     return get_over_flag();
 }
-
+//TODO: fix the addition from side to side movement
 void TwentyFourtyEight::move_up() {
     for(int row = 0; row < BOARD_SIZE; row++){
         for(int column = BOARD_SIZE - 1; column > 0; column--){
