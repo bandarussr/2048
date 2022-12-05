@@ -12,7 +12,7 @@ using namespace std;
 
 TwentyFourtyEight::TwentyFourtyEight() {
     score = 0;
-    over_flag = false;
+    over_flag = true;
     board.resize(BOARD_SIZE, vector<int>(BOARD_SIZE, 0));
 }
 
@@ -33,7 +33,17 @@ int TwentyFourtyEight::get_score() {
 }
 
 bool TwentyFourtyEight::get_over_flag() {
-    return over_flag;
+    for(int i = 0; i < BOARD_SIZE; i++){
+        for(int j = 0; j < BOARD_SIZE - 1; j++){
+            if(board[i][j] == board[i][j + 1]) return false;
+        }
+    }
+    for(int i = 0; i < BOARD_SIZE; i++){
+        for(int j = 0; j < BOARD_SIZE - 1; j++){
+            if(board[j][i] == board[j+ 1][i]) return false;
+        }
+    }
+    return true;
 }
 
 void TwentyFourtyEight::random_placer() {
@@ -85,6 +95,7 @@ void TwentyFourtyEight::move_up() {
             if(board[column + 1][row] == board[column][row]){
                 board[column][row] += board[column + 1][row];
                 board[column + 1][row] = 0;
+                score += board[column][row];
             }
         }
     }
@@ -121,6 +132,7 @@ void TwentyFourtyEight::move_down() {
             if(board[column - 1][row] == board[column][row]){
                 board[column][row] += board[column - 1][row];
                 board[column - 1][row] = 0;
+                score += board[column][row];
             }
         }
     }
@@ -157,6 +169,7 @@ void TwentyFourtyEight::move_left() {
             if(board[column][row] == board[column][row + 1]){
                 board[column][row] += board[column][row + 1];
                 board[column][row + 1] = 0;
+                score += board[column][row];
             }
         }
     }
@@ -194,6 +207,7 @@ void TwentyFourtyEight::move_right() {
             if (board[column][row] == board[column][row - 1]) {
                 board[column][row] += board[column][row - 1];
                 board[column][row - 1] = 0;
+                score += board[column][row];
             }
         }
     }
