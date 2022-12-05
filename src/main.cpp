@@ -11,11 +11,11 @@ int main() {
     char cmd;
     TwentyFourtyEight game;
     cout << fmt::v9::format("{:^25}\n", 2048);
-    game.random_placer();
-    game.random_placer();
-    game.print_board();
 
-    while (cin >> cmd) {
+    while (true) {
+        game.print_board();
+
+        cin >> cmd;
         switch (cmd) {
             case 'w':
                 game.move_up();
@@ -45,8 +45,5 @@ int main() {
             cout << "Final Score: " << game.get_score() << endl;
             break;
         }
-        game.random_placer();
-        game.print_board();
-
     }
 }

@@ -13,6 +13,10 @@ using namespace std;
 TwentyFourtyEight::TwentyFourtyEight() {
     score = 0;
     board.resize(BOARD_SIZE, vector<int>(BOARD_SIZE, 0));
+
+    // Sets up game by placing 2 tiles at random.
+    random_placer();
+    random_placer();
 }
 
 // TODO: Make it so board can dynamically change size depending on number size and not look weird.
@@ -39,22 +43,32 @@ int TwentyFourtyEight::get_score() {
 bool TwentyFourtyEight::check_game_state() {
     for(int i = 0; i < BOARD_SIZE; i++) {
         for (int j = 0; j < BOARD_SIZE; j++) {
-            if (board[i][j] == 0) return false;
+            if (board[i][j] == 0) {
+                random_placer();
+                return false;
+            };
         }
     }
     for(int i = 0; i < BOARD_SIZE; i++){
         for(int j = 0; j < BOARD_SIZE - 1; j++){
-            if(board[i][j] == board[i][j + 1]) return false;
+            if(board[i][j] == board[i][j + 1]) {
+                random_placer();
+                return false;
+            };
         }
     }
     for(int i = 0; i < BOARD_SIZE; i++){
         for(int j = 0; j < BOARD_SIZE - 1; j++){
-            if(board[j][i] == board[j + 1][i]) return false;
+            if(board[j][i] == board[j + 1][i]) {
+                random_placer();
+                return false;
+            };
         }
     }
 
     return true;
 }
+
 /*
  * finds a random tile that and places either and tile with the value of 2 or 4 randomly.
  */
