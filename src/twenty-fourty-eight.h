@@ -9,14 +9,12 @@ class TwentyFourtyEight {
     private:
         std::vector<std::vector<int> > board;
         int score;
-        bool over_flag;
 
     public:
         TwentyFourtyEight();
 
         void print_board();
         int get_score();
-        bool get_over_flag();
 
         void random_placer();
         bool check_game_state();

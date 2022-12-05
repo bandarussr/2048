@@ -12,7 +12,6 @@ using namespace std;
 
 TwentyFourtyEight::TwentyFourtyEight() {
     score = 0;
-    over_flag = true;
     board.resize(BOARD_SIZE, vector<int>(BOARD_SIZE, 0));
 }
 
@@ -32,7 +31,7 @@ int TwentyFourtyEight::get_score() {
     return score;
 }
 
-bool TwentyFourtyEight::get_over_flag() {
+bool TwentyFourtyEight::check_game_state() {
     for(int i = 0; i < BOARD_SIZE; i++){
         for(int j = 0; j < BOARD_SIZE - 1; j++){
             if(board[i][j] == board[i][j + 1]) return false;
@@ -73,9 +72,6 @@ void TwentyFourtyEight::random_placer() {
     }
 }
 
-bool TwentyFourtyEight::check_game_state() {
-    return get_over_flag();
-}
 void TwentyFourtyEight::move_up() {
     for(int i = 0; i < BOARD_SIZE; i++) {
         for (int row = 0; row < BOARD_SIZE; row++) {
