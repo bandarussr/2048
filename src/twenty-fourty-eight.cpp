@@ -76,6 +76,7 @@ void TwentyFourtyEight::random_placer() {
     int i, j, tile;
     int rand_num[2] = {2, 4};
     bool placed = false;
+    int placedTile = 0;
     random_device rand_gen;
 
     while(!placed) {
@@ -86,6 +87,8 @@ void TwentyFourtyEight::random_placer() {
             board[i][j] = rand_num[tile];
             placed = true;
         }
+        if(placedTile == BOARD_SIZE*BOARD_SIZE) return;
+        placedTile++;
     }
 }
 
