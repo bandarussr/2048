@@ -1,6 +1,9 @@
 # 2048
 COSC202 Final Lab
 
+- Shashank Bandaru
+- Jason Choi
+
 Usage:
   - Clone repo
   - Make "obj" and "bin" folders
