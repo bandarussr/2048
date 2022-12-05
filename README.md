@@ -1,5 +1,5 @@
 # 2048
-COSC202 Final Lab: 2048
+COSC202 Final Lab
 
 Usage:
   - Clone repo
