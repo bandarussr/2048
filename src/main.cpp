@@ -39,8 +39,6 @@ int main() {
             default:
                 cout << "Use the wasd keys to move. Use q to quit." << endl;
         }
-        game.random_placer();
-        game.print_board();
 
         if (game.check_game_state()) {
             cout << "Game over!" << endl;
