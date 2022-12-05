@@ -62,15 +62,16 @@ void TwentyFourtyEight::random_placer() {
 bool TwentyFourtyEight::check_game_state() {
     return get_over_flag();
 }
-//TODO: fix the addition from side to side movement
 void TwentyFourtyEight::move_up() {
-    for(int row = 0; row < BOARD_SIZE; row++){
-        for(int column = BOARD_SIZE - 1; column > 0; column--){
-            if(board[column][row] == 0) continue;
-            if(board[column - 1][row] == 0 && board[column][row] != 0){
-                board[column - 1][row] = board[column][row];
-                board[column][row] = 0;
-                column = BOARD_SIZE - 1;
+    for(int i = 0; i < BOARD_SIZE; i++) {
+        for (int row = 0; row < BOARD_SIZE; row++) {
+            for (int column = BOARD_SIZE - 1; column > 0; column--) {
+                if (board[column][row] == 0) continue;
+                if (board[column - 1][row] == 0 && board[column][row] != 0) {
+                    board[column - 1][row] = board[column][row];
+                    board[column][row] = 0;
+                    column = BOARD_SIZE - 1;
+                }
             }
         }
     }
@@ -83,26 +84,30 @@ void TwentyFourtyEight::move_up() {
             }
         }
     }
-    for(int row = 0; row < BOARD_SIZE; row++){
-        for(int column = BOARD_SIZE - 1; column > 0; column--){
-            if(board[column][row] == 0) continue;
-            if(board[column - 1][row] == 0 && board[column][row] != 0){
-                board[column - 1][row] = board[column][row];
-                board[column][row] = 0;
-                column = BOARD_SIZE - 1;
+    for(int i = 0; i < BOARD_SIZE; i++) {
+        for (int row = 0; row < BOARD_SIZE; row++) {
+            for (int column = BOARD_SIZE - 1; column > 0; column--) {
+                if (board[column][row] == 0) continue;
+                if (board[column - 1][row] == 0 && board[column][row] != 0) {
+                    board[column - 1][row] = board[column][row];
+                    board[column][row] = 0;
+                    column = BOARD_SIZE - 1;
+                }
             }
         }
     }
 }
 
 void TwentyFourtyEight::move_down() {
-    for(int row = 0; row < BOARD_SIZE; row++) {
-        for (int column = 0; column < BOARD_SIZE - 1; column++) {
-            if (board[column][row] == 0) continue;
-            if (board[column + 1][row] == 0 && board[column][row] != 0) {
-                board[column + 1][row] = board[column][row];
-                board[column][row] = 0;
-                column = 0;
+    for(int i = 0; i < BOARD_SIZE; i++) {
+        for (int row = 0; row < BOARD_SIZE; row++) {
+            for (int column = 0; column < BOARD_SIZE - 1; column++) {
+                if (board[column][row] == 0) continue;
+                if (board[column + 1][row] == 0 && board[column][row] != 0) {
+                    board[column + 1][row] = board[column][row];
+                    board[column][row] = 0;
+                    column = 0;
+                }
             }
         }
     }
@@ -115,26 +120,30 @@ void TwentyFourtyEight::move_down() {
             }
         }
     }
-    for(int row = 0; row < BOARD_SIZE; row++) {
-        for (int column = 0; column < BOARD_SIZE - 1; column++) {
-            if (board[column][row] == 0) continue;
-            if (board[column + 1][row] == 0 && board[column][row] != 0) {
-                board[column + 1][row] = board[column][row];
-                board[column][row] = 0;
-                column = 0;
+    for(int i = 0; i < BOARD_SIZE; i++) {
+        for (int row = 0; row < BOARD_SIZE; row++) {
+            for (int column = 0; column < BOARD_SIZE - 1; column++) {
+                if (board[column][row] == 0) continue;
+                if (board[column + 1][row] == 0 && board[column][row] != 0) {
+                    board[column + 1][row] = board[column][row];
+                    board[column][row] = 0;
+                    column = 0;
+                }
             }
         }
     }
 }
 
 void TwentyFourtyEight::move_left() {
-    for(int column = BOARD_SIZE - 1; column >= 0; column--){
-        for(int row = BOARD_SIZE - 1; row > 0; row--){
-            if(board[column][row] == 0) continue;
-            if(board[column][row - 1] == 0 && board[column][row] != 0){
-                board[column][row - 1] = board[column][row];
-                board[column][row] = 0;
-                row = BOARD_SIZE - 1;
+    for(int i = 0; i < BOARD_SIZE; i++) {
+        for (int column = BOARD_SIZE - 1; column >= 0; column--) {
+            for (int row = BOARD_SIZE - 1; row > 0; row--) {
+                if (board[column][row] == 0) continue;
+                if (board[column][row - 1] == 0 && board[column][row] != 0) {
+                    board[column][row - 1] = board[column][row];
+                    board[column][row] = 0;
+                    row = BOARD_SIZE - 1;
+                }
             }
         }
     }
@@ -147,29 +156,34 @@ void TwentyFourtyEight::move_left() {
             }
         }
     }
-    for(int column = BOARD_SIZE - 1; column >= 0; column--){
-        for(int row = BOARD_SIZE - 1; row > 0; row--){
-            if(board[column][row] == 0) continue;
-            if(board[column][row - 1] == 0 && board[column][row] != 0){
-                board[column][row - 1] = board[column][row];
-                board[column][row] = 0;
-                row = BOARD_SIZE - 1;
+    for(int i = 0; i < BOARD_SIZE; i++) {
+        for (int column = BOARD_SIZE - 1; column >= 0; column--) {
+            for (int row = BOARD_SIZE - 1; row > 0; row--) {
+                if (board[column][row] == 0) continue;
+                if (board[column][row - 1] == 0 && board[column][row] != 0) {
+                    board[column][row - 1] = board[column][row];
+                    board[column][row] = 0;
+                    row = BOARD_SIZE - 1;
+                }
             }
         }
     }
 }
 
 void TwentyFourtyEight::move_right() {
-    for(int column = 0; column < BOARD_SIZE; column++) {
-        for (int row = 0; row < BOARD_SIZE - 1; row++) {
-            if (board[column][row] == 0) continue;
-            if (board[column][row + 1] == 0) {
-                board[column][row + 1] = board[column][row];
-                board[column][row] = 0;
-                row = 0;
+    for(int i = 0; i < BOARD_SIZE; i++) {
+        for (int column = 0; column < BOARD_SIZE; column++) {
+            for (int row = 0; row < BOARD_SIZE - 1; row++) {
+                if (board[column][row] == 0) continue;
+                if (board[column][row + 1] == 0) {
+                    board[column][row + 1] = board[column][row];
+                    board[column][row] = 0;
+                    row = 0;
+                }
             }
         }
     }
+
     for(int column = 0; column < BOARD_SIZE; column++) {
         for (int row = BOARD_SIZE - 1; row > 0; row --) {
             if (board[column][row] == 0) continue;
@@ -179,13 +193,15 @@ void TwentyFourtyEight::move_right() {
             }
         }
     }
-    for(int column = 0; column < BOARD_SIZE; column++) {
-        for (int row = 0; row < BOARD_SIZE - 1; row++) {
-            if (board[column][row] == 0) continue;
-            if (board[column][row + 1] == 0) {
-                board[column][row + 1] = board[column][row];
-                board[column][row] = 0;
-                row = 0;
+    for(int i = 0; i < BOARD_SIZE; i++) {
+        for (int column = 0; column < BOARD_SIZE; column++) {
+            for (int row = 0; row < BOARD_SIZE - 1; row++) {
+                if (board[column][row] == 0) continue;
+                if (board[column][row + 1] == 0) {
+                    board[column][row + 1] = board[column][row];
+                    board[column][row] = 0;
+                    row = 0;
+                }
             }
         }
     }
