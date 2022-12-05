@@ -42,7 +42,7 @@ int main() {
         game.random_placer();
         game.print_board();
 
-        if (game.get_over_flag() == true) {
+        if (game.check_game_state() == true) {
             cout << "Game over!" << endl;
             cout << "Final Score: " << game.get_score() << endl;
             break;
