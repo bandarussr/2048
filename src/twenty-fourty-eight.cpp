@@ -4,6 +4,10 @@
 #include <vector>
 #include <random>
 
+// fmt Library
+#define FMT_HEADER_ONLY
+#include "../deps/fmt/format.h"
+
 using namespace std;
 
 TwentyFourtyEight::TwentyFourtyEight() {
@@ -17,7 +21,7 @@ void TwentyFourtyEight::print_board() {
     for (int i = 0; i < BOARD_SIZE; i++) {
         cout << "|";
         for (int j = 0; j < BOARD_SIZE; j++) {
-            cout << setw(5) << board[i][j];
+            cout << fmt::v9::format("{:^5}", board[i][j]);
             if (j != BOARD_SIZE - 1) cout << "|";
         }
         cout << "|" << endl;

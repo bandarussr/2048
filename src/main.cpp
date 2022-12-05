@@ -1,12 +1,17 @@
 #include "twenty-fourty-eight.h"
 #include <iostream>
+
+// fmt Library
+#define FMT_HEADER_ONLY
+#include "../deps/fmt/format.h"
+
 using namespace std;
 
 int main() {
     char cmd;
     TwentyFourtyEight game;
 
-    cout << "  2048  " << endl;
+    cout << fmt::v9::format("{:^25}\n", 2048);
     game.random_placer();
     game.print_board();
 
