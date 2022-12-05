@@ -10,8 +10,8 @@ using namespace std;
 int main() {
     char cmd;
     TwentyFourtyEight game;
-
     cout << fmt::v9::format("{:^25}\n", 2048);
+    game.random_placer();
     game.random_placer();
     game.print_board();
 
@@ -39,13 +39,14 @@ int main() {
             default:
                 cout << "Use the wasd keys to move. Use q to quit." << endl;
         }
-        game.random_placer();
-        game.print_board();
 
         if (game.check_game_state()) {
             cout << "Game over!" << endl;
             cout << "Final Score: " << game.get_score() << endl;
             break;
         }
+        game.random_placer();
+        game.print_board();
+
     }
 }

@@ -31,7 +31,17 @@ int TwentyFourtyEight::get_score() {
     return score;
 }
 
+/*
+ * searches for any two side-by-side tiles that are equal to each other on both vertical and horizontal
+ * directions. If there is, then the game can still continue and returns false; else then the game cannot
+ * be continued and the game ends.
+ */
 bool TwentyFourtyEight::check_game_state() {
+    for(int i = 0; i < BOARD_SIZE; i++) {
+        for (int j = 0; j < BOARD_SIZE; j++) {
+            if (board[i][j] == 0) return false;
+        }
+    }
     for(int i = 0; i < BOARD_SIZE; i++){
         for(int j = 0; j < BOARD_SIZE - 1; j++){
             if(board[i][j] == board[i][j + 1]) return false;
@@ -39,36 +49,29 @@ bool TwentyFourtyEight::check_game_state() {
     }
     for(int i = 0; i < BOARD_SIZE; i++){
         for(int j = 0; j < BOARD_SIZE - 1; j++){
-            if(board[j][i] == board[j+ 1][i]) return false;
+            if(board[j][i] == board[j + 1][i]) return false;
         }
     }
+
     return true;
 }
-
+/*
+ * finds a random tile that and places either and tile with the value of 2 or 4 randomly.
+ */
 void TwentyFourtyEight::random_placer() {
-    int i, j, tile, counter, placedTile;
+    int i, j, tile;
     int rand_num[2] = {2, 4};
     bool placed = false;
-    counter = 0;
-    placedTile = 0;
     random_device rand_gen;
 
     while(!placed) {
         i = rand_gen() % 4;
         j = rand_gen() % 4;
         tile = rand_gen() % 2;
-        if(board[i][j] == 0) {
+        if (board[i][j] == 0) {
             board[i][j] = rand_num[tile];
-            counter++;
+            placed = true;
         }
-        if(counter == 2) placed = true;
-        for(int i = 0; i < BOARD_SIZE; i++){
-            for(int j = 0; j < BOARD_SIZE; j++){
-                if(board[i][j] != 0) placedTile++;
-            }
-        }
-        if(placedTile == BOARD_SIZE*BOARD_SIZE) placed = true;
-        placedTile = 0;
     }
 }
 
