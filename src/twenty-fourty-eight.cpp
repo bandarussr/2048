@@ -19,7 +19,6 @@ TwentyFourtyEight::TwentyFourtyEight() {
     random_placer();
 }
 
-// TODO: Make it so board can dynamically change size depending on number size and not look weird.
 void TwentyFourtyEight::print_board() {
     for (int i = 0; i < BOARD_SIZE; i++) {
         cout << "|";
@@ -31,11 +30,15 @@ void TwentyFourtyEight::print_board() {
     }
 }
 
+// returns score
 int TwentyFourtyEight::get_score() {
     return score;
 }
 
 /*
+ * first checks for any open spaces within the board then randomly places a tile in the board since an
+ * open space will mean that the game is not yet finished
+ *
  * searches for any two side-by-side tiles that are equal to each other on both vertical and horizontal
  * directions. If there is, then the game can still continue and returns false; else then the game cannot
  * be continued and the game ends.
@@ -70,7 +73,9 @@ bool TwentyFourtyEight::check_game_state() {
 }
 
 /*
+ * checks the board if there is an open slot on the board where a random number can be placed
  * finds a random tile that and places either and tile with the value of 2 or 4 randomly.
+ * if the tile cannot be placed then it'll finds a new tile to place it in.
  */
 void TwentyFourtyEight::random_placer() {
     int i, j, tile;
@@ -78,6 +83,12 @@ void TwentyFourtyEight::random_placer() {
     bool placed = false;
     int placedTile = 0;
     random_device rand_gen;
+    for(int i = 0; i < BOARD_SIZE; i++){
+        for(int j = 0; j < BOARD_SIZE; j++){
+            if(board[i][j] != 0) placedTile++;
+        }
+    }
+    if(placedTile == BOARD_SIZE*BOARD_SIZE) return;
 
     while(!placed) {
         i = rand_gen() % 4;
@@ -87,11 +98,16 @@ void TwentyFourtyEight::random_placer() {
             board[i][j] = rand_num[tile];
             placed = true;
         }
-        if(placedTile == BOARD_SIZE*BOARD_SIZE) return;
-        placedTile++;
     }
 }
-
+/*
+ * first pushes all the numbers on to one side of the board
+ * then adds similar tiles that are next to each other in the horizontal or vertical replacing
+ * the sum into one tile and replacing the other tile to 0
+ * then pushes all the numbers on to one side of the board once again
+ *
+ * the sum of the tiles that are merged are also added to the total score of the game
+ */
 void TwentyFourtyEight::move_up() {
     for(int i = 0; i < BOARD_SIZE; i++) {
         for (int row = 0; row < BOARD_SIZE; row++) {
