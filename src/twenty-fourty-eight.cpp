@@ -21,8 +21,10 @@ TwentyFourtyEight::TwentyFourtyEight() {
 }
 
 void TwentyFourtyEight::print_board() {
+    cout << "┌─────┬─────┬─────┬─────┐" << endl;
+
     for (int i = 0; i < BOARD_SIZE; i++) {
-        cout << "|";
+        cout << "│";
         for (int j = 0; j < BOARD_SIZE; j++) {
             auto bg_color = fmt::v9::color::black;
             auto fg_color = fmt::v9::color::white;
@@ -38,10 +40,16 @@ void TwentyFourtyEight::print_board() {
             else if (board[i][j] >= 2048) bg_color = fmt::v9::color::red;
 
             cout << fmt::v9::format(fmt::v9::bg(bg_color) | fmt::v9::fg(fg_color), "{:^5}", board[i][j]);
-            if (j != BOARD_SIZE - 1) cout << "|";
+            if (j != BOARD_SIZE - 1) cout << "│";
         }
-        cout << "|" << endl;
+        cout << "│" << endl;
+
+        if (i != BOARD_SIZE - 1) {
+            cout << "├─────┼─────┼─────┼─────┤" << endl;
+        }
     }
+    
+    cout << "└─────┴─────┴─────┴─────┘" << endl;
 }
 
 // returns score
