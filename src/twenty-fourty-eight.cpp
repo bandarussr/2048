@@ -27,7 +27,7 @@ void TwentyFourtyEight::print_board() {
         cout << "│";
         for (int j = 0; j < BOARD_SIZE; j++) {
             auto bg_color = fmt::v9::color::black;
-            auto fg_color = fmt::v9::color::white;
+            auto fg_color = fmt::v9::color::gray;
 
             // Changes color based on number.
             if (board[i][j] == 0) fg_color = fmt::v9::color::black;
@@ -68,26 +68,17 @@ int TwentyFourtyEight::get_score() {
 bool TwentyFourtyEight::check_game_state() {
     for(int i = 0; i < BOARD_SIZE; i++) {
         for (int j = 0; j < BOARD_SIZE; j++) {
-            if (board[i][j] == 0) {
-                random_placer();
-                return false;
-            };
+            if (board[i][j] == 0) return false;
         }
     }
     for(int i = 0; i < BOARD_SIZE; i++){
         for(int j = 0; j < BOARD_SIZE - 1; j++){
-            if(board[i][j] == board[i][j + 1]) {
-                random_placer();
-                return false;
-            };
+            if(board[i][j] == board[i][j + 1]) return false;
         }
     }
     for(int i = 0; i < BOARD_SIZE; i++){
         for(int j = 0; j < BOARD_SIZE - 1; j++){
-            if(board[j][i] == board[j + 1][i]) {
-                random_placer();
-                return false;
-            };
+            if(board[j][i] == board[j + 1][i]) return false;
         }
     }
 

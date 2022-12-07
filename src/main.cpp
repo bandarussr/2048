@@ -77,8 +77,12 @@ int main() {
                 return 0;
             
             default:
-                cout << "Use the wasd keys to move. Use Q to quit." << endl;
+                cout << fmt::v9::format("{:=^25}\n\n", "");
+                cout << fmt::v9::format(fmt::v9::fg(fmt::v9::color::red), "Use the wasd keys to move. Use Q to quit.") << endl;
+                continue;
         }
+        
+        game.random_placer();
         cout << fmt::v9::format("{:=^25}\n\n", "");
     }
 }
