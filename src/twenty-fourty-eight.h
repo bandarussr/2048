@@ -3,7 +3,7 @@
 
 #include <vector>
 
-const int BOARD_SIZE = 3;
+const int BOARD_SIZE = 4;
 
 class TwentyFourtyEight {
     private:
