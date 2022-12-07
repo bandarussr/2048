@@ -1,7 +1,5 @@
 #include "twenty-fourty-eight.h"
 #include <iostream>
-#include <iomanip>
-#include <vector>
 #include <random>
 
 // fmt Library
