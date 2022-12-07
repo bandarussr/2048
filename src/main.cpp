@@ -38,6 +38,12 @@ int main() {
     while (true) {
         game.print_board();
 
+        if (game.check_game_state()) {
+            cout << "Game over!" << endl;
+            cout << "Final Score: " << game.get_score() << endl;
+            break;
+        }
+
         cout << "> ";
 
         #ifdef _WIN32
@@ -70,13 +76,6 @@ int main() {
             default:
                 cout << "Use the wasd keys to move. Use Q to quit." << endl;
         }
-
-        if (game.check_game_state()) {
-            cout << "Game over!" << endl;
-            cout << "Final Score: " << game.get_score() << endl;
-            break;
-        }
-
         cout << fmt::v9::format("{:=^25}\n\n", "");
     }
 }
