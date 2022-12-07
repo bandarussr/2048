@@ -22,36 +22,36 @@ int main() {
     
     // TODO: might move into a class function to make dynamic
     // Welcome and Controls
-    cout << fmt::v9::format("{:=^25}\n", "Welcome to 2048");
+    fmt::print("{:=^25}\n", "Welcome to 2048");
 
     #ifdef _WIN32
-        cout << "Since you are on Windows, move by pressing the move keys." << endl;
-        cout << "You do not have to press [ENTER] after each move key." << endl;
+        fmt::print("Since you are on Windows, move by pressing the move keys.\n");
+        fmt::print("You do not have to press [ENTER] after each move key.\n");
     #else
-        cout << "Since you are not on Windows, move by pressing the move key and then [ENTER]." << endl;
+        fmt::print("Since you are not on Windows, move by pressing the move key and then [ENTER].\n");
     #endif
     
-    cout << fmt::v9::format(fmt::v9::fg(fmt::v9::color::red), "If your terminal does not support Unicode characters, the board will not display properly.") << endl;
+    fmt::print(fmt::fg(fmt::color::red), "If your terminal does not support Unicode characters, the board will not display properly.\n");
 
-    cout << fmt::v9::format("{:=^25}\n", "Controls");
-    cout << "Use w for up, s for down, a for left, and d for right." << endl;
-    cout << "Use Q to quit the game early." << endl;
-    cout << fmt::v9::format("{:=^25}\n", "") << endl;
+    fmt::print("{:=^25}\n", "Controls");
+    fmt::print("Use w for up, s for down, a for left, and d for right.\n");
+    fmt::print("Use Q to quit the game early.\n");
+    fmt::print("{:=^25}\n", "");
 
     while (true) {
         game.print_board();
 
         if (game.check_game_state()) {
-            cout << "Game over!" << endl;
-            cout << "Final Score: " << game.get_score() << endl;
+            fmt::print("Game over!\n");
+            fmt::print("Final Score: {}\n", fmt::group_digits(game.get_score()));
             break;
         }
 
-        cout << "> ";
+        fmt::print("> ");
 
         #ifdef _WIN32
             cmd = getch();
-            cout << cmd << endl;
+            fmt::print("{}", cmd);
         #else
             cin >> cmd;
         #endif
@@ -77,12 +77,12 @@ int main() {
                 return 0;
             
             default:
-                cout << fmt::v9::format("{:=^25}\n\n", "");
-                cout << fmt::v9::format(fmt::v9::fg(fmt::v9::color::red), "Use the wasd keys to move. Use Q to quit.") << endl;
+                fmt::print("{:=^25}\n\n", "");
+                fmt::print(fmt::fg(fmt::color::red), "Use the wasd keys to move. Use Q to quit.\n");
                 continue;
         }
         
         game.random_placer();
-        cout << fmt::v9::format("{:=^25}\n\n", "");
+        fmt::print("{:=^25}\n\n", "");
     }
 }

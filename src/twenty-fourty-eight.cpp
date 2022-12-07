@@ -21,35 +21,35 @@ TwentyFourtyEight::TwentyFourtyEight() {
 }
 
 void TwentyFourtyEight::print_board() {
-    cout << "┌─────┬─────┬─────┬─────┐" << endl;
+    fmt::print("┌─────┬─────┬─────┬─────┐\n");
 
     for (int i = 0; i < BOARD_SIZE; i++) {
-        cout << "│";
+        fmt::print("│");
         for (int j = 0; j < BOARD_SIZE; j++) {
-            auto bg_color = fmt::v9::color::black;
-            auto fg_color = fmt::v9::color::gray;
+            auto bg_color = fmt::color::black;
+            auto fg_color = fmt::color::gray;
 
             // Changes color based on number.
-            if (board[i][j] == 0) fg_color = fmt::v9::color::black;
-            else if (board[i][j] == 2) bg_color = fmt::v9::color::light_blue;
-            else if (board[i][j] == 4) bg_color = fmt::v9::color::blue;
-            else if (board[i][j] == 8) bg_color = fmt::v9::color::light_yellow;
-            else if (board[i][j] == 16) bg_color = fmt::v9::color::yellow;
-            else if (board[i][j] > 16 && board[i][j] <= 256) bg_color = fmt::v9::color::orange;
-            else if (board[i][j] > 256 && board[i][j] <= 1024) bg_color = fmt::v9::color::orange_red;
-            else if (board[i][j] >= 2048) bg_color = fmt::v9::color::red;
+            if (board[i][j] == 0) fg_color = fmt::color::black;
+            else if (board[i][j] == 2) bg_color = fmt::color::light_blue;
+            else if (board[i][j] == 4) bg_color = fmt::color::blue;
+            else if (board[i][j] == 8) bg_color = fmt::color::light_yellow;
+            else if (board[i][j] == 16) bg_color = fmt::color::yellow;
+            else if (board[i][j] > 16 && board[i][j] <= 256) bg_color = fmt::color::orange;
+            else if (board[i][j] > 256 && board[i][j] <= 1024) bg_color = fmt::color::orange_red;
+            else if (board[i][j] >= 2048) bg_color = fmt::color::red;
 
-            cout << fmt::v9::format(fmt::v9::bg(bg_color) | fmt::v9::fg(fg_color), "{:^5}", board[i][j]);
-            if (j != BOARD_SIZE - 1) cout << "│";
+            fmt::print(fmt::bg(bg_color) | fmt::fg(fg_color), "{:^5}", board[i][j]);
+            if (j != BOARD_SIZE - 1) fmt::print("│");
         }
-        cout << "│" << endl;
+        fmt::print("│\n");
 
         if (i != BOARD_SIZE - 1) {
-            cout << "├─────┼─────┼─────┼─────┤" << endl;
+            fmt::print("├─────┼─────┼─────┼─────┤\n");
         }
     }
     
-    cout << "└─────┴─────┴─────┴─────┘" << endl;
+    fmt::print("└─────┴─────┴─────┴─────┘\n");
 }
 
 // returns score
