@@ -10,6 +10,7 @@
 // Provides support for entering commands without pressing [ENTER].
 #ifdef _WIN32
     #include <conio.h>
+#else
 #endif
 
 using namespace std;

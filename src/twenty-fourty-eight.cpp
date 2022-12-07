@@ -7,6 +7,7 @@
 // fmt Library
 #define FMT_HEADER_ONLY
 #include "../deps/fmt/format.h"
+#include "../deps/fmt/color.h"
 
 using namespace std;
 
@@ -23,7 +24,20 @@ void TwentyFourtyEight::print_board() {
     for (int i = 0; i < BOARD_SIZE; i++) {
         cout << "|";
         for (int j = 0; j < BOARD_SIZE; j++) {
-            cout << fmt::v9::format("{:^5}", board[i][j]);
+            auto bg_color = fmt::v9::color::black;
+            auto fg_color = fmt::v9::color::white;
+
+            // Changes color based on number.
+            if (board[i][j] == 0) fg_color = fmt::v9::color::black;
+            else if (board[i][j] == 2) bg_color = fmt::v9::color::light_blue;
+            else if (board[i][j] == 4) bg_color = fmt::v9::color::blue;
+            else if (board[i][j] == 8) bg_color = fmt::v9::color::light_yellow;
+            else if (board[i][j] == 16) bg_color = fmt::v9::color::yellow;
+            else if (board[i][j] > 16 && board[i][j] <= 256) bg_color = fmt::v9::color::orange;
+            else if (board[i][j] > 256 && board[i][j] <= 1024) bg_color = fmt::v9::color::orange_red;
+            else if (board[i][j] >= 2048) bg_color = fmt::v9::color::red;
+
+            cout << fmt::v9::format(fmt::v9::bg(bg_color) | fmt::v9::fg(fg_color), "{:^5}", board[i][j]);
             if (j != BOARD_SIZE - 1) cout << "|";
         }
         cout << "|" << endl;
