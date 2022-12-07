@@ -5,6 +5,7 @@
 // Equivalent to C++ 22's <format>, not supported in all compilers yet.
 #define FMT_HEADER_ONLY
 #include "../deps/fmt/format.h"
+#include "../deps/fmt/color.h"
 
 // Include <conio.h> only on Windows (not supported elsewhere).
 // Provides support for entering commands without pressing [ENTER].
@@ -29,6 +30,8 @@ int main() {
     #else
         cout << "Since you are not on Windows, move by pressing the move key and then [ENTER]." << endl;
     #endif
+    
+    cout << fmt::v9::format(fmt::v9::fg(fmt::v9::color::red), "If your terminal does not support Unicode characters, the board will not display properly.") << endl;
 
     cout << fmt::v9::format("{:=^25}\n", "Controls");
     cout << "Use w for up, s for down, a for left, and d for right." << endl;
