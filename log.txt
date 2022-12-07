@@ -1,0 +1,57 @@
+356aa14;Shashank Bandaru;Wed Dec 7 20:04:14 2022 +0000;Removed unused includes.
+88cb052;Shashank Bandaru;Wed Dec 7 20:02:49 2022 +0000;Changed default BOARD_SIZE back to 4.
+344cb0f;Shashank Bandaru;Wed Dec 7 20:02:04 2022 +0000;Changed printBoard() so that it is dynamic instead of hardcoded to BOARD_SIZE of 4.
+2f1fb49;Shashank Bandaru;Wed Dec 7 18:55:56 2022 +0000;Fixed a error with random_placer() when no tiles moved.
+4b6d0b7;Shashank Bandaru;Wed Dec 7 18:24:58 2022 +0000;Fixed Unicode issue.
+7026633;Shashank Bandaru;Wed Dec 7 18:00:51 2022 +0000;Fixed a few bugs and made numbers more readable.
+60913c5;Shashank Bandaru;Wed Dec 7 04:55:45 2022 +0000;Added temp warning about Unicode characters for unsupported terminals.
+e6782bf;Shashank Bandaru;Wed Dec 7 04:47:15 2022 +0000;Moved check_game_state to before input to properly quit game when over.
+0c54217;Shashank Bandaru;Wed Dec 7 04:44:09 2022 +0000;Hardcoded a 4x4 board. Need to make it dynamic later.
+8080c1a;Shashank Bandaru;Tue Dec 6 23:13:31 2022 -0500;Added color for tiles using fmt library.
+cc5413b;Shashank Bandaru;Tue Dec 6 23:38:18 2022 +0000;Added ability to move without pressing [ENTER] on Windows.
+70587d3;Jason Choi;Tue Dec 6 18:15:13 2022 -0500;commented
+91d8ceb;Jason Choi;Mon Dec 5 15:30:15 2022 -0500;change in main
+151d6a7;Jason Choi;Mon Dec 5 15:18:35 2022 -0500;placer function
+290693d;Shashank Bandaru;Mon Dec 5 20:14:12 2022 +0000;Moved random_placer() calls into check_game_state() and constructor (on initial creation of game).
+f565301;Jason Choi;Mon Dec 5 15:03:41 2022 -0500;changed random placer function and added another check for check game state
+e981c74;Shashank Bandaru;Mon Dec 5 00:36:32 2022 -0500;Update README.md
+ae26248;Shashank Bandaru;Mon Dec 5 00:36:03 2022 -0500;Update README.md
+379e2ad;Shashank Bandaru;Mon Dec 5 00:35:50 2022 -0500;Create README.md
+42ce993;Shashank Bandaru;Mon Dec 5 00:34:00 2022 -0500;Removed redundant == check.
+b40a19f;Shashank Bandaru;Mon Dec 5 00:31:12 2022 -0500;Fixed error
+e6e5512;Shashank Bandaru;Mon Dec 5 00:30:16 2022 -0500;Edited a few functions.
+db4bd51;Jason Choi;Sun Dec 4 21:37:11 2022 -0500;implemented get_over_flag function and scoring functionality
+82f708d;Jason Choi;Sun Dec 4 19:07:45 2022 -0500;Merge remote-tracking branch 'origin/main'
+da297cf;Jason Choi;Sun Dec 4 19:07:34 2022 -0500;fixed previous bug
+3436a2e;Shashank Bandaru;Sat Dec 3 19:07:16 2022 -0500;Merge branch 'main' of github.com:bandarussr/2048
+79f6464;Jason Choi;Fri Dec 2 22:04:16 2022 -0500;found bug
+7876cea;Jason Choi;Fri Dec 2 21:39:53 2022 -0500;implemented move up and move down functions
+39cb2bf;Jason Choi;Fri Dec 2 20:04:22 2022 -0500;Merge remote-tracking branch 'origin/main'
+bd3a507;Jason Choi;Fri Dec 2 20:04:06 2022 -0500;implemented and fixed both left and right move functions
+554cb90;Shashank Bandaru;Sat Dec 3 00:30:56 2022 +0000;Centered numbers using fmt library.
+ea180b4;Shashank Bandaru;Fri Dec 2 20:48:30 2022 +0000;Added fmt header only library.
+f841749;Shashank Bandaru;Fri Dec 2 10:56:02 2022 -0500;Changed makefile compiler version to C++ 11.
+5aedcd0;Shashank Bandaru;Thu Dec 1 21:54:27 2022 +0000;..
+990ae2e;Shashank Bandaru;Thu Dec 1 16:51:50 2022 -0500;..
+181a25f;Shashank Bandaru;Thu Dec 1 16:51:45 2022 -0500;Merge branch 'main' of github.com:bandarussr/2048
+1a31590;Jason Choi;Thu Dec 1 16:47:35 2022 -0500;fixed rand and implemented move_left()
+f87179c;Shashank Bandaru;Thu Dec 1 21:44:25 2022 +0000;Made board's spaces length 5 to accomodate for numbers 0-99999.
+f67cca7;Shashank Bandaru;Thu Dec 1 20:55:39 2022 +0000;..
+d65d9d4;Shashank Bandaru;Thu Dec 1 18:18:34 2022 +0000;Nothing much...
+6e3c04b;Jason Choi;Thu Dec 1 10:04:18 2022 -0500;added the random_placer() function; reformatted the print_board()
+5e9beb9;Jason Choi;Thu Dec 1 10:03:36 2022 -0500;minor fix to vector
+6e4eb41;Jason Choi;Thu Dec 1 10:01:26 2022 -0500;fixed the random_placer() and reformatted print_board()
+2d2257e;Shashank Bandaru;Wed Nov 30 14:56:00 2022 -0500;Merge branch 'main' of github.com:bandarussr/2048
+f285601;Shashank Bandaru;Wed Nov 30 19:53:53 2022 +0000;Changed board to a vector.
+838890b;Jason Choi;Wed Nov 30 14:52:50 2022 -0500;created the random_placer function
+f6a5d42;Jason Choi;Wed Nov 30 14:36:11 2022 -0500;created functions in twenty-fourty-eight.cpp
+4f7efd4;Shashank Bandaru;Wed Nov 30 14:17:40 2022 -0500;Added makefile and set up proper project folders.
+e30dd1e;Shashank Bandaru;Wed Nov 30 14:05:04 2022 -0500;Transferred log to Google Docs.
+c970a41;Shashank Bandaru;Tue Nov 29 18:05:35 2022 +0000;Updated log.
+62dee34;Shashank Bandaru;Tue Nov 29 17:55:41 2022 +0000;Implemented print_board, get_score, and get_over_flag.
+9471a65;Shashank Bandaru;Tue Nov 29 17:42:23 2022 +0000;Added UI in main and more helper functions in class.
+482cb47;Shashank Bandaru;Tue Nov 29 16:32:22 2022 +0000;Added main and class files and boilerplate code.
+3cada54;Shashank Bandaru;Mon Nov 28 11:02:23 2022 -0500;Modified gitignore file to include .vscode files.
+f968bcc;Shashank Bandaru;Mon Nov 28 10:58:43 2022 -0500;Delete .vscode directory
+52105cc;Shashank Bandaru;Mon Nov 28 10:56:36 2022 -0500;Added gitignore file for Visual Studio Code, CLion, Windows, macOS, and C++.
+5a9ba4f;Shashank Bandaru;Tue Nov 22 16:49:07 2022 -0500;Initial commit
