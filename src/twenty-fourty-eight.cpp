@@ -21,7 +21,11 @@ TwentyFourtyEight::TwentyFourtyEight() {
 }
 
 void TwentyFourtyEight::print_board() {
-    fmt::print("┌─────┬─────┬─────┬─────┐\n");
+    fmt::print("┌");
+            for (int i = 0; i < BOARD_SIZE; i++) {
+                if (i == BOARD_SIZE - 1) fmt::print("─────┐\n");
+                else fmt::print("─────┬");
+            }
 
     for (int i = 0; i < BOARD_SIZE; i++) {
         fmt::print("│");
@@ -45,11 +49,19 @@ void TwentyFourtyEight::print_board() {
         fmt::print("│\n");
 
         if (i != BOARD_SIZE - 1) {
-            fmt::print("├─────┼─────┼─────┼─────┤\n");
+            fmt::print("├");
+            for (int i = 0; i < BOARD_SIZE; i++) {
+                if (i == BOARD_SIZE - 1) fmt::print("─────┤\n");
+                else fmt::print("─────┼");
+            }
         }
     }
     
-    fmt::print("└─────┴─────┴─────┴─────┘\n");
+    fmt::print("└");
+            for (int i = 0; i < BOARD_SIZE; i++) {
+                if (i == BOARD_SIZE - 1) fmt::print("─────┘\n");
+                else fmt::print("─────┴");
+            }
 }
 
 // returns score
@@ -106,8 +118,8 @@ void TwentyFourtyEight::random_placer() {
     if(placedTile == BOARD_SIZE*BOARD_SIZE) return;
 
     while(!placed) {
-        i = rand_gen() % 4;
-        j = rand_gen() % 4;
+        i = rand_gen() % BOARD_SIZE;
+        j = rand_gen() % BOARD_SIZE;
         tile = rand_gen() % 2;
         if (board[i][j] == 0) {
             board[i][j] = rand_num[tile];
