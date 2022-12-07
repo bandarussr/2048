@@ -31,8 +31,6 @@ int main() {
         fmt::print("Since you are not on Windows, move by pressing the move key and then [ENTER].\n");
     #endif
     
-    fmt::print(fmt::fg(fmt::color::red), "If your terminal does not support Unicode characters, the board will not display properly.\n");
-
     fmt::print("{:=^25}\n", "Controls");
     fmt::print("Use w for up, s for down, a for left, and d for right.\n");
     fmt::print("Use Q to quit the game early.\n");

@@ -91,6 +91,8 @@ bool TwentyFourtyEight::check_game_state() {
  * if the tile cannot be placed then it'll finds a new tile to place it in.
  */
 void TwentyFourtyEight::random_placer() {
+    if (board_copy == board) return;
+
     int i, j, tile;
     int rand_num[2] = {2, 4};
     bool placed = false;
@@ -122,6 +124,8 @@ void TwentyFourtyEight::random_placer() {
  * the sum of the tiles that are merged are also added to the total score of the game
  */
 void TwentyFourtyEight::move_up() {
+    board_copy = board;
+
     for(int i = 0; i < BOARD_SIZE; i++) {
         for (int row = 0; row < BOARD_SIZE; row++) {
             for (int column = BOARD_SIZE - 1; column > 0; column--) {
@@ -159,6 +163,8 @@ void TwentyFourtyEight::move_up() {
 }
 
 void TwentyFourtyEight::move_down() {
+    board_copy = board;
+
     for(int i = 0; i < BOARD_SIZE; i++) {
         for (int row = 0; row < BOARD_SIZE; row++) {
             for (int column = 0; column < BOARD_SIZE - 1; column++) {
@@ -196,6 +202,8 @@ void TwentyFourtyEight::move_down() {
 }
 
 void TwentyFourtyEight::move_left() {
+    board_copy = board;
+
     for(int i = 0; i < BOARD_SIZE; i++) {
         for (int column = BOARD_SIZE - 1; column >= 0; column--) {
             for (int row = BOARD_SIZE - 1; row > 0; row--) {
@@ -233,6 +241,8 @@ void TwentyFourtyEight::move_left() {
 }
 
 void TwentyFourtyEight::move_right() {
+    board_copy = board;
+
     for(int i = 0; i < BOARD_SIZE; i++) {
         for (int column = 0; column < BOARD_SIZE; column++) {
             for (int row = 0; row < BOARD_SIZE - 1; row++) {
