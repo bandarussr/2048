@@ -5,7 +5,6 @@
 #include "twenty-fourty-eight.h"
 #include <iostream>
 
-
 // fmt Library
 // Equivalent to C++ 20's <format>, not supported in all compilers yet.
 #define FMT_HEADER_ONLY
